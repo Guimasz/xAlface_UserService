@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "teachers")
 public class Teacher extends User {
     @Column(nullable = true)
     private String department;
-    // getter/setter
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
