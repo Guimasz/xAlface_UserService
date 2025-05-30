@@ -1,6 +1,5 @@
 package com.xAlface.microservices.user.xAlface_UserService.model;
 
-import java.util.Collection;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.persistence.*;
 import lombok.*;

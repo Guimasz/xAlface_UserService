@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "teachers")
