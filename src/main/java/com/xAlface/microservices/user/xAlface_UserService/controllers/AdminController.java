@@ -10,7 +10,7 @@ import com.xAlface.microservices.user.xAlface_UserService.model.Admin;
 import com.xAlface.microservices.user.xAlface_UserService.services.AdminService;
 
 @RestController
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/user/admin")
 public class AdminController {
 
     @Autowired

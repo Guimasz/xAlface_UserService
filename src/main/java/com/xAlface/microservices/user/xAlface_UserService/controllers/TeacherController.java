@@ -11,7 +11,7 @@ import com.xAlface.microservices.user.xAlface_UserService.model.Teacher;
 import com.xAlface.microservices.user.xAlface_UserService.services.TeacherService;
 
 @RestController
-@RequestMapping(value = "/teachers")
+@RequestMapping(value = "/user/teacher")
 public class TeacherController {
 
     @Autowired
