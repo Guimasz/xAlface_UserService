@@ -7,7 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "teachers")
+@Table(name = "Teacher")
 public class Teacher extends User {
     @Column(nullable = true)
     private String department;
