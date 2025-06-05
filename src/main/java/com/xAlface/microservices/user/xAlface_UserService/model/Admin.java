@@ -10,7 +10,7 @@ import lombok.*;
 
 @Getter @Setter
 @Entity
-@Table(name = "admins")
+@Table(name = "Admin")
 public class Admin extends User {
 
     @Override
