@@ -75,6 +75,20 @@ public class TeacherController {
          }
     }
 
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> createEndpoint(@RequestBody Teacher teacher) { 
+         try {
+             Teacher createdTeacher = teacherServ.create(teacher); 
+             return ResponseEntity.status(HttpStatus.CREATED).body(createdTeacher); 
+         } catch (RuntimeException e) { 
+             return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao criar professor: " + e.getMessage());
+         } catch (Exception e) {
+              return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao criar professor: " + e.getMessage() +
+                          " (Tipo: " + e.getClass().getSimpleName() + ")");
+         }
+    }
+
 
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {

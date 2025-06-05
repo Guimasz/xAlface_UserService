@@ -12,7 +12,6 @@ import com.xAlface.microservices.user.xAlface_UserService.repositories.TeacherRe
 public class TeacherService {
 
     @Autowired private TeacherRepository repo; 
-    @Autowired private PasswordEncoder encoder; 
 
     public Teacher findById(Long id) {
         return repo.findById(id).orElse(null);
@@ -27,7 +26,6 @@ public class TeacherService {
     }
 
     public Teacher create(Teacher t) {
-        t.setPassword(encoder.encode(t.getPassword()));
         return repo.save(t); 
     }
 
@@ -45,7 +43,7 @@ public class TeacherService {
         if (t == null) {
             throw new IllegalArgumentException("Professor não encontrado com id: " + id);
         }
-        t.setPassword(encoder.encode(pwd));
+        t.setPassword(pwd);
         return repo.save(t); 
     }
 

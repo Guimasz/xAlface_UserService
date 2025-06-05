@@ -60,6 +60,20 @@ public class AdminController {
         }
     }
 
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> create(@RequestBody Admin admin) {
+        try {
+            Admin createdAdmin = adminServ.create(admin);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdAdmin);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Erro ao criar administrador: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao criar administrador: " + e.getMessage() +
+                          " (Tipo: " + e.getClass().getSimpleName() + ")");
+        }
+    }
+
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {

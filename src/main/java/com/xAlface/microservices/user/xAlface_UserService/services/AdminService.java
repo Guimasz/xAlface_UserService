@@ -13,7 +13,7 @@ import com.xAlface.microservices.user.xAlface_UserService.repositories.AdminRepo
 public class AdminService {
 
     @Autowired private AdminRepository repo;
-    @Autowired private PasswordEncoder encoder;
+
 
     public Admin findById(Long id) {
         return repo.findById(id).orElse(null);
@@ -28,7 +28,6 @@ public class AdminService {
     }
 
     public Admin create(Admin a) {
-        a.setPassword(encoder.encode(a.getPassword()));
         return repo.save(a);
     }
 
@@ -46,7 +45,7 @@ public class AdminService {
         if (a == null) {
             throw new IllegalArgumentException("Administrador não encontrado com id: " + id);
         }
-        a.setPassword(encoder.encode(pwd));
+        a.setPassword(pwd);
         return repo.save(a);
     }
 
