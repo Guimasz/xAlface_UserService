@@ -35,3 +35,6 @@ build/
 .idx/
 *.idx
 ./idx
+
+### Local Configuration ###
+src/main/resources/application-local.properties
